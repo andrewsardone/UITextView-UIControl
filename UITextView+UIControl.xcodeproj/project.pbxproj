@@ -20,6 +20,9 @@
 		49000D9F172C32EA002EDA7D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49000D7F172C32EA002EDA7D /* UIKit.framework */; };
 		49000DA0172C32EA002EDA7D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49000D81172C32EA002EDA7D /* Foundation.framework */; };
 		49000DA8172C32EA002EDA7D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 49000DA6172C32EA002EDA7D /* InfoPlist.strings */; };
+		49000DB6172C36A0002EDA7D /* UITextViewTargetActionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49000DB5172C36A0002EDA7D /* UITextViewTargetActionTests.m */; };
+		49000DB9172C3791002EDA7D /* UITextView+APSUIControlTargetAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 49000DB8172C3791002EDA7D /* UITextView+APSUIControlTargetAction.m */; };
+		49000DBA172C37FC002EDA7D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49000D83172C32EA002EDA7D /* CoreGraphics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +53,9 @@
 		49000D9D172C32EA002EDA7D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		49000DA5172C32EA002EDA7D /* UITextView+UIControlTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UITextView+UIControlTests-Info.plist"; sourceTree = "<group>"; };
 		49000DA7172C32EA002EDA7D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		49000DB5172C36A0002EDA7D /* UITextViewTargetActionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITextViewTargetActionTests.m; sourceTree = "<group>"; };
+		49000DB7172C3791002EDA7D /* UITextView+APSUIControlTargetAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+APSUIControlTargetAction.h"; sourceTree = "<group>"; };
+		49000DB8172C3791002EDA7D /* UITextView+APSUIControlTargetAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+APSUIControlTargetAction.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49000DBA172C37FC002EDA7D /* CoreGraphics.framework in Frameworks */,
 				49000D9E172C32EA002EDA7D /* SenTestingKit.framework in Frameworks */,
 				49000D9F172C32EA002EDA7D /* UIKit.framework in Frameworks */,
 				49000DA0172C32EA002EDA7D /* Foundation.framework in Frameworks */,
@@ -109,6 +116,8 @@
 		49000D85172C32EA002EDA7D /* UITextView+UIControl */ = {
 			isa = PBXGroup;
 			children = (
+				49000DB7172C3791002EDA7D /* UITextView+APSUIControlTargetAction.h */,
+				49000DB8172C3791002EDA7D /* UITextView+APSUIControlTargetAction.m */,
 				49000D8E172C32EA002EDA7D /* APSAppDelegate.h */,
 				49000D8F172C32EA002EDA7D /* APSAppDelegate.m */,
 				49000D86172C32EA002EDA7D /* Supporting Files */,
@@ -133,6 +142,7 @@
 		49000DA3172C32EA002EDA7D /* UITextView+UIControlTests */ = {
 			isa = PBXGroup;
 			children = (
+				49000DB5172C36A0002EDA7D /* UITextViewTargetActionTests.m */,
 				49000DA4172C32EA002EDA7D /* Supporting Files */,
 			);
 			path = "UITextView+UIControlTests";
@@ -259,6 +269,7 @@
 			files = (
 				49000D8C172C32EA002EDA7D /* main.m in Sources */,
 				49000D90172C32EA002EDA7D /* APSAppDelegate.m in Sources */,
+				49000DB9172C3791002EDA7D /* UITextView+APSUIControlTargetAction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49000DB6172C36A0002EDA7D /* UITextViewTargetActionTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
