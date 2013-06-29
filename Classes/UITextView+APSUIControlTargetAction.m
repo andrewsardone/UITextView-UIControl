@@ -21,7 +21,15 @@ static void *APSUIControlTargetActionEventsTargetActionsMapKey = &APSUIControlTa
 
 - (void)removeTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents
 {
-#warning TODO: Implement me
+    NSMutableSet *targetActions = self.aps_eventsTargetActionsMap[@(controlEvents)];
+    NSDictionary *targetAction = nil;
+    for (NSDictionary *ta in targetActions) {
+        if (ta[@"target"] == target && [ta[@"action"] isEqualToString:NSStringFromSelector(action)]) {
+            targetAction = ta;
+            break;
+        }
+    }
+    if (targetAction) [targetActions removeObject:targetAction];
 }
 
 - (NSSet *)allTargets
