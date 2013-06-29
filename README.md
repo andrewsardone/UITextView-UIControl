@@ -24,4 +24,4 @@ subset) of control events on `UITextView`?
 
 ## TODO
 
-Lots. This is just an experiment at the moment.
+Lots. Mostly forwarding NSNotifications events to the stored target-actions. I'll get to that once my MacBook finishes charging and I'm back to where I can code.
