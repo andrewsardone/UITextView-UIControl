@@ -31,6 +31,16 @@ describe(@"UITextView+APSUIControlTargetAction", ^{
         [[textView.allTargets should] contain:target];
     });
 
+    it(@"starts with zero associated control events", ^{
+        [[theValue(textView.allControlEvents) should] beZero];
+    });
+
+    it(@"tracks the associated control events", ^{
+        id target = [NSObject new];
+        [textView addTarget:target action:@selector(doesNotMatter:) forControlEvents:UIControlEventEditingDidEnd];
+        [[theValue(textView.allControlEvents) should] equal:theValue(UIControlEventEditingDidEnd)];
+    });
+
 });
 
 SPEC_END

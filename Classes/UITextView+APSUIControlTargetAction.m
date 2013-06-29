@@ -2,12 +2,14 @@
 #import <objc/runtime.h>
 
 static void *APSUIControlTargetActionTargetsKey = &APSUIControlTargetActionTargetsKey;
+static void *APSUIControlTargetActionControlEventsKey = &APSUIControlTargetActionControlEventsKey;
 
 @implementation UITextView (APSUIControlTargetAction)
 
 - (void)addTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents
 {
     [self.aps_mutableAllTargets addObject:target];
+    [self aps_addControlEvents:controlEvents];
 }
 
 - (void)removeTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents
@@ -22,8 +24,12 @@ static void *APSUIControlTargetActionTargetsKey = &APSUIControlTargetActionTarge
 
 - (UIControlEvents)allControlEvents
 {
-#warning TODO: Implement me
-    return UIControlEventAllEvents;
+    NSNumber *controlEvents = objc_getAssociatedObject(self, APSUIControlTargetActionControlEventsKey);
+    if (controlEvents == nil) {
+        controlEvents = @0;
+        objc_setAssociatedObject(self, APSUIControlTargetActionControlEventsKey, controlEvents, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    }
+    return controlEvents.unsignedIntegerValue;
 }
 
 - (NSArray *)actionsForTarget:(id)target forControlEvent:(UIControlEvents)controlEven
@@ -52,6 +58,12 @@ static void *APSUIControlTargetActionTargetsKey = &APSUIControlTargetActionTarge
         objc_setAssociatedObject(self, APSUIControlTargetActionTargetsKey, mutableAllTargets, OBJC_ASSOCIATION_RETAIN);
     }
     return mutableAllTargets;
+}
+
+- (void)aps_addControlEvents:(UIControlEvents)controlEvents
+{
+    UIControlEvents newControlEvents = self.allControlEvents|controlEvents;
+    objc_setAssociatedObject(self, APSUIControlTargetActionControlEventsKey, @(newControlEvents), OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
 @end
