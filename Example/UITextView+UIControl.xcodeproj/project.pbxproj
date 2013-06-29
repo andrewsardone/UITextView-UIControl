@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		434A933C7B644E2590B3DF33 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 55551EA30B01445FBEA31984 /* libPods.a */; };
 		49000D80172C32EA002EDA7D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49000D7F172C32EA002EDA7D /* UIKit.framework */; };
 		49000D82172C32EA002EDA7D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49000D81172C32EA002EDA7D /* Foundation.framework */; };
 		49000D84172C32EA002EDA7D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49000D83172C32EA002EDA7D /* CoreGraphics.framework */; };
@@ -21,8 +22,8 @@
 		49000DA0172C32EA002EDA7D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49000D81172C32EA002EDA7D /* Foundation.framework */; };
 		49000DA8172C32EA002EDA7D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 49000DA6172C32EA002EDA7D /* InfoPlist.strings */; };
 		49000DB6172C36A0002EDA7D /* UITextViewTargetActionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49000DB5172C36A0002EDA7D /* UITextViewTargetActionTests.m */; };
-		49000DB9172C3791002EDA7D /* UITextView+APSUIControlTargetAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 49000DB8172C3791002EDA7D /* UITextView+APSUIControlTargetAction.m */; };
 		49000DBA172C37FC002EDA7D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49000D83172C32EA002EDA7D /* CoreGraphics.framework */; };
+		8EACC80CEDE84DE1909950AF /* libPods-UITextView+UIControlTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E314E5C8051483793D175E5 /* libPods-UITextView+UIControlTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3ADC1CEC074E4CA29EAB9C9C /* Pods-UITextView+UIControlTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITextView+UIControlTests.xcconfig"; path = "Pods/Pods-UITextView+UIControlTests.xcconfig"; sourceTree = SOURCE_ROOT; };
 		49000D7C172C32EA002EDA7D /* UITextView+UIControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UITextView+UIControl.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49000D7F172C32EA002EDA7D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		49000D81172C32EA002EDA7D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -54,8 +56,9 @@
 		49000DA5172C32EA002EDA7D /* UITextView+UIControlTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UITextView+UIControlTests-Info.plist"; sourceTree = "<group>"; };
 		49000DA7172C32EA002EDA7D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		49000DB5172C36A0002EDA7D /* UITextViewTargetActionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITextViewTargetActionTests.m; sourceTree = "<group>"; };
-		49000DB7172C3791002EDA7D /* UITextView+APSUIControlTargetAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+APSUIControlTargetAction.h"; sourceTree = "<group>"; };
-		49000DB8172C3791002EDA7D /* UITextView+APSUIControlTargetAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+APSUIControlTargetAction.m"; sourceTree = "<group>"; };
+		55551EA30B01445FBEA31984 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E314E5C8051483793D175E5 /* libPods-UITextView+UIControlTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UITextView+UIControlTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		93654E8EC40A4634AA66DC18 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +69,7 @@
 				49000D80172C32EA002EDA7D /* UIKit.framework in Frameworks */,
 				49000D82172C32EA002EDA7D /* Foundation.framework in Frameworks */,
 				49000D84172C32EA002EDA7D /* CoreGraphics.framework in Frameworks */,
+				434A933C7B644E2590B3DF33 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +81,7 @@
 				49000D9E172C32EA002EDA7D /* SenTestingKit.framework in Frameworks */,
 				49000D9F172C32EA002EDA7D /* UIKit.framework in Frameworks */,
 				49000DA0172C32EA002EDA7D /* Foundation.framework in Frameworks */,
+				8EACC80CEDE84DE1909950AF /* libPods-UITextView+UIControlTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +95,8 @@
 				49000DA3172C32EA002EDA7D /* UITextView+UIControlTests */,
 				49000D7E172C32EA002EDA7D /* Frameworks */,
 				49000D7D172C32EA002EDA7D /* Products */,
+				93654E8EC40A4634AA66DC18 /* Pods.xcconfig */,
+				3ADC1CEC074E4CA29EAB9C9C /* Pods-UITextView+UIControlTests.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,6 +116,8 @@
 				49000D81172C32EA002EDA7D /* Foundation.framework */,
 				49000D83172C32EA002EDA7D /* CoreGraphics.framework */,
 				49000D9D172C32EA002EDA7D /* SenTestingKit.framework */,
+				55551EA30B01445FBEA31984 /* libPods.a */,
+				5E314E5C8051483793D175E5 /* libPods-UITextView+UIControlTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -116,8 +125,6 @@
 		49000D85172C32EA002EDA7D /* UITextView+UIControl */ = {
 			isa = PBXGroup;
 			children = (
-				49000DB7172C3791002EDA7D /* UITextView+APSUIControlTargetAction.h */,
-				49000DB8172C3791002EDA7D /* UITextView+APSUIControlTargetAction.m */,
 				49000D8E172C32EA002EDA7D /* APSAppDelegate.h */,
 				49000D8F172C32EA002EDA7D /* APSAppDelegate.m */,
 				49000D86172C32EA002EDA7D /* Supporting Files */,
@@ -164,9 +171,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 49000DAE172C32EA002EDA7D /* Build configuration list for PBXNativeTarget "UITextView+UIControl" */;
 			buildPhases = (
+				5DCDAF7E1A2D405BB60250B4 /* Check Pods Manifest.lock */,
 				49000D78172C32EA002EDA7D /* Sources */,
 				49000D79172C32EA002EDA7D /* Frameworks */,
 				49000D7A172C32EA002EDA7D /* Resources */,
+				BD9612C04E85475690C34C70 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -181,10 +190,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 49000DB1172C32EA002EDA7D /* Build configuration list for PBXNativeTarget "UITextView+UIControlTests" */;
 			buildPhases = (
+				3F0EC26E5E4E42B4AA25498D /* Check Pods Manifest.lock */,
 				49000D97172C32EA002EDA7D /* Sources */,
 				49000D98172C32EA002EDA7D /* Frameworks */,
 				49000D99172C32EA002EDA7D /* Resources */,
 				49000D9A172C32EA002EDA7D /* ShellScript */,
+				EA46AD8639C7414284F67D1D /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -247,6 +258,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3F0EC26E5E4E42B4AA25498D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+		};
 		49000D9A172C32EA002EDA7D /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -260,6 +285,48 @@
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
+		5DCDAF7E1A2D405BB60250B4 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+		};
+		BD9612C04E85475690C34C70 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+		EA46AD8639C7414284F67D1D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-UITextView+UIControlTests-resources.sh\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -269,7 +336,6 @@
 			files = (
 				49000D8C172C32EA002EDA7D /* main.m in Sources */,
 				49000D90172C32EA002EDA7D /* APSAppDelegate.m in Sources */,
-				49000DB9172C3791002EDA7D /* UITextView+APSUIControlTargetAction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +435,7 @@
 		};
 		49000DAF172C32EA002EDA7D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93654E8EC40A4634AA66DC18 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UITextView+UIControl/UITextView+UIControl-Prefix.pch";
@@ -380,6 +447,7 @@
 		};
 		49000DB0172C32EA002EDA7D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93654E8EC40A4634AA66DC18 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UITextView+UIControl/UITextView+UIControl-Prefix.pch";
@@ -391,11 +459,13 @@
 		};
 		49000DB2172C32EA002EDA7D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3ADC1CEC074E4CA29EAB9C9C /* Pods-UITextView+UIControlTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/UITextView+UIControl.app/UITextView+UIControl";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UITextView+UIControl/UITextView+UIControl-Prefix.pch";
@@ -408,11 +478,13 @@
 		};
 		49000DB3172C32EA002EDA7D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3ADC1CEC074E4CA29EAB9C9C /* Pods-UITextView+UIControlTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/UITextView+UIControl.app/UITextView+UIControl";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UITextView+UIControl/UITextView+UIControl-Prefix.pch";
@@ -442,6 +514,7 @@
 				49000DB0172C32EA002EDA7D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		49000DB1172C32EA002EDA7D /* Build configuration list for PBXNativeTarget "UITextView+UIControlTests" */ = {
 			isa = XCConfigurationList;
@@ -450,6 +523,7 @@
 				49000DB3172C32EA002EDA7D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

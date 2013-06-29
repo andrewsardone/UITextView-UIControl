@@ -1,0 +1,7 @@
+platform :ios, :deployment_target => "5.0"
+
+pod 'UITextView+UIControl', :path => '../UITextView+UIControl.podspec'
+
+target 'UITextView+UIControlTests', :exclusive => true do
+  pod 'Kiwi', :inhibit_warnings => true
+end
