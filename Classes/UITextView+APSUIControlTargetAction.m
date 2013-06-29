@@ -39,10 +39,21 @@ static void *APSUIControlTargetActionEventsTargetActionsMapKey = &APSUIControlTa
     return allControlEvents;
 }
 
-- (NSArray *)actionsForTarget:(id)target forControlEvent:(UIControlEvents)controlEven
+- (NSArray *)actionsForTarget:(id)target forControlEvent:(UIControlEvents)controlEvent
 {
-#warning TODO: Implement me
-    return nil;
+    NSMutableSet *targetActions = [NSMutableSet set];
+    for (NSNumber *ce in self.aps_eventsTargetActionsMap.allKeys) {
+        if (ce.unsignedIntegerValue & controlEvent) {
+            [targetActions addObjectsFromArray:[self.aps_eventsTargetActionsMap[ce] allObjects]];
+        }
+    }
+
+    NSMutableArray *actions = [NSMutableArray array];
+    for (NSDictionary *ta in targetActions) {
+        if (ta[@"target"] == target) [actions addObject:ta[@"action"]];
+    }
+
+    return actions.count ? actions : nil;
 }
 
 - (void)sendAction:(SEL)action to:(id)target forEvent:(UIEvent *)event

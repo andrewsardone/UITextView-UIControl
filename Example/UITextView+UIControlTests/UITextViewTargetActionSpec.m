@@ -41,6 +41,17 @@ describe(@"UITextView+APSUIControlTargetAction", ^{
         [[theValue(textView.allControlEvents) should] equal:theValue(UIControlEventEditingDidEnd)];
     });
 
+    it(@"tracks all actions for an associated target and control event", ^{
+        id target = [NSObject new];
+        [[[textView actionsForTarget:target forControlEvent:UIControlEventEditingDidBegin] should] beNil];
+
+        [textView addTarget:target action:@selector(verySpecialAction:) forControlEvents:UIControlEventEditingChanged];
+
+        NSArray *actions = [textView actionsForTarget:target forControlEvent:UIControlEventEditingChanged];
+        [[actions shouldNot] beNil];
+        [[actions should] equal:@[ @"verySpecialAction:" ]];
+    });
+
 });
 
 SPEC_END
