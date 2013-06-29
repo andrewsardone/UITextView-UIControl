@@ -21,8 +21,8 @@
 		49000D9F172C32EA002EDA7D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49000D7F172C32EA002EDA7D /* UIKit.framework */; };
 		49000DA0172C32EA002EDA7D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49000D81172C32EA002EDA7D /* Foundation.framework */; };
 		49000DA8172C32EA002EDA7D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 49000DA6172C32EA002EDA7D /* InfoPlist.strings */; };
-		49000DB6172C36A0002EDA7D /* UITextViewTargetActionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49000DB5172C36A0002EDA7D /* UITextViewTargetActionTests.m */; };
 		49000DBA172C37FC002EDA7D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49000D83172C32EA002EDA7D /* CoreGraphics.framework */; };
+		493F63EC177F39BC00E66FA6 /* UITextViewTargetActionSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 493F63EB177F39BC00E66FA6 /* UITextViewTargetActionSpec.m */; };
 		8EACC80CEDE84DE1909950AF /* libPods-UITextView+UIControlTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E314E5C8051483793D175E5 /* libPods-UITextView+UIControlTests.a */; };
 /* End PBXBuildFile section */
 
@@ -55,7 +55,7 @@
 		49000D9D172C32EA002EDA7D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		49000DA5172C32EA002EDA7D /* UITextView+UIControlTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UITextView+UIControlTests-Info.plist"; sourceTree = "<group>"; };
 		49000DA7172C32EA002EDA7D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		49000DB5172C36A0002EDA7D /* UITextViewTargetActionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITextViewTargetActionTests.m; sourceTree = "<group>"; };
+		493F63EB177F39BC00E66FA6 /* UITextViewTargetActionSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITextViewTargetActionSpec.m; sourceTree = "<group>"; };
 		55551EA30B01445FBEA31984 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E314E5C8051483793D175E5 /* libPods-UITextView+UIControlTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UITextView+UIControlTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93654E8EC40A4634AA66DC18 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -149,8 +149,8 @@
 		49000DA3172C32EA002EDA7D /* UITextView+UIControlTests */ = {
 			isa = PBXGroup;
 			children = (
-				49000DB5172C36A0002EDA7D /* UITextViewTargetActionTests.m */,
 				49000DA4172C32EA002EDA7D /* Supporting Files */,
+				493F63EB177F39BC00E66FA6 /* UITextViewTargetActionSpec.m */,
 			);
 			path = "UITextView+UIControlTests";
 			sourceTree = "<group>";
@@ -343,7 +343,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49000DB6172C36A0002EDA7D /* UITextViewTargetActionTests.m in Sources */,
+				493F63EC177F39BC00E66FA6 /* UITextViewTargetActionSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
