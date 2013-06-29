@@ -2,14 +2,21 @@
 #import <objc/runtime.h>
 
 static void *APSUIControlTargetActionTargetsKey = &APSUIControlTargetActionTargetsKey;
-static void *APSUIControlTargetActionControlEventsKey = &APSUIControlTargetActionControlEventsKey;
+
+static void *APSUIControlTargetActionEventsTargetActionsMapKey = &APSUIControlTargetActionEventsTargetActionsMapKey;
 
 @implementation UITextView (APSUIControlTargetAction)
 
 - (void)addTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents
 {
     [self.aps_mutableAllTargets addObject:target];
-    [self aps_addControlEvents:controlEvents];
+
+    NSMutableSet *targetActions = self.aps_eventsTargetActionsMap[@(controlEvents)];
+    if (targetActions == nil) {
+        targetActions = [NSMutableSet set];
+        self.aps_eventsTargetActionsMap[@(controlEvents)] = targetActions;
+    }
+    [targetActions addObject:@{ @"target": target, @"action": NSStringFromSelector(action) }];
 }
 
 - (void)removeTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents
@@ -24,12 +31,12 @@ static void *APSUIControlTargetActionControlEventsKey = &APSUIControlTargetActio
 
 - (UIControlEvents)allControlEvents
 {
-    NSNumber *controlEvents = objc_getAssociatedObject(self, APSUIControlTargetActionControlEventsKey);
-    if (controlEvents == nil) {
-        controlEvents = @0;
-        objc_setAssociatedObject(self, APSUIControlTargetActionControlEventsKey, controlEvents, OBJC_ASSOCIATION_COPY_NONATOMIC);
-    }
-    return controlEvents.unsignedIntegerValue;
+    NSArray *arrayOfEvents = self.aps_eventsTargetActionsMap.allKeys;
+    UIControlEvents allControlEvents = 0;
+    for (NSNumber *e in arrayOfEvents) {
+        allControlEvents = allControlEvents|e.unsignedIntegerValue;
+    };
+    return allControlEvents;
 }
 
 - (NSArray *)actionsForTarget:(id)target forControlEvent:(UIControlEvents)controlEven
@@ -50,6 +57,21 @@ static void *APSUIControlTargetActionControlEventsKey = &APSUIControlTargetActio
 
 #pragma mark Private
 
+- (NSMutableDictionary *)aps_eventsTargetActionsMap
+{
+    NSMutableDictionary *eventsTargetActionsMap = objc_getAssociatedObject(self, APSUIControlTargetActionEventsTargetActionsMapKey);
+    if (eventsTargetActionsMap == nil) {
+        eventsTargetActionsMap = [NSMutableDictionary dictionary];
+        objc_setAssociatedObject(
+            self,
+            APSUIControlTargetActionEventsTargetActionsMapKey,
+            eventsTargetActionsMap,
+            OBJC_ASSOCIATION_RETAIN_NONATOMIC
+        );
+    }
+    return eventsTargetActionsMap;
+}
+
 - (NSMutableSet *)aps_mutableAllTargets
 {
     NSMutableSet *mutableAllTargets = objc_getAssociatedObject(self, APSUIControlTargetActionTargetsKey);
@@ -58,12 +80,6 @@ static void *APSUIControlTargetActionControlEventsKey = &APSUIControlTargetActio
         objc_setAssociatedObject(self, APSUIControlTargetActionTargetsKey, mutableAllTargets, OBJC_ASSOCIATION_RETAIN);
     }
     return mutableAllTargets;
-}
-
-- (void)aps_addControlEvents:(UIControlEvents)controlEvents
-{
-    UIControlEvents newControlEvents = self.allControlEvents|controlEvents;
-    objc_setAssociatedObject(self, APSUIControlTargetActionControlEventsKey, @(newControlEvents), OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
 @end
