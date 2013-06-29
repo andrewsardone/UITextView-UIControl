@@ -1,11 +1,13 @@
 #import "UITextView+APSUIControlTargetAction.h"
+#import <objc/runtime.h>
+
+static void *APSUIControlTargetActionTargetsKey = &APSUIControlTargetActionTargetsKey;
 
 @implementation UITextView (APSUIControlTargetAction)
 
 - (void)addTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents
 {
-#warning TODO: Implement me
-    // TODO: you know, add the target and action for the control events
+    [self.aps_mutableAllTargets addObject:target];
 }
 
 - (void)removeTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents
@@ -15,8 +17,7 @@
 
 - (NSSet *)allTargets
 {
-#warning TODO: Implement me
-    return nil;
+    return self.aps_mutableAllTargets;
 }
 
 - (UIControlEvents)allControlEvents
@@ -39,6 +40,18 @@
 - (void)sendActionsForControlEvents:(UIControlEvents)controlEvents
 {
 #warning TODO: Implement me
+}
+
+#pragma mark Private
+
+- (NSMutableSet *)aps_mutableAllTargets
+{
+    NSMutableSet *mutableAllTargets = objc_getAssociatedObject(self, APSUIControlTargetActionTargetsKey);
+    if (mutableAllTargets == nil) {
+        mutableAllTargets = [NSMutableSet set];
+        objc_setAssociatedObject(self, APSUIControlTargetActionTargetsKey, mutableAllTargets, OBJC_ASSOCIATION_RETAIN);
+    }
+    return mutableAllTargets;
 }
 
 @end

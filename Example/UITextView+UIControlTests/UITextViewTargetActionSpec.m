@@ -20,6 +20,17 @@ describe(@"UITextView+APSUIControlTargetAction", ^{
         [[textView should] respondToSelector:@selector(removeTarget:action:forControlEvents:)];
     });
 
+    it(@"starts with zero targets", ^{
+        [[textView.allTargets shouldNot] beNil];
+        [[textView.allTargets should] beEmpty];
+    });
+
+    it(@"tracks the targets", ^{
+        id target = [NSObject new];
+        [textView addTarget:target action:@selector(doesNotMatter:) forControlEvents:UIControlEventEditingDidEnd];
+        [[textView.allTargets should] contain:target];
+    });
+
 });
 
 SPEC_END
