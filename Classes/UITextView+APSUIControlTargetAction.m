@@ -108,10 +108,15 @@ static void *APSUIControlTargetActionEventsTargetActionsMapKey = &APSUIControlTa
 
 - (void)aps_forwardControlEvent:(UIControlEvents)controlEvent fromSender:(id)sender
 {
-    NSMutableSet *targetActions = self.aps_eventsTargetActionsMap[@(controlEvent)];
-    for (NSDictionary *ta in targetActions) {
-        [ta[@"target"] performSelector:NSSelectorFromString(ta[@"action"])
-                            withObject:sender];
+    NSArray *events = self.aps_eventsTargetActionsMap.allKeys;
+    for (NSNumber *ce in events) {
+        if (ce.unsignedIntegerValue & controlEvent) {
+            NSMutableSet *targetActions = self.aps_eventsTargetActionsMap[ce];
+            for (NSDictionary *ta in targetActions) {
+                [ta[@"target"] performSelector:NSSelectorFromString(ta[@"action"])
+                                    withObject:sender];
+            }
+        }
     }
 }
 
