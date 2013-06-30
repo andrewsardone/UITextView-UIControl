@@ -56,10 +56,12 @@ describe(@"UITextView+APSUIControlTargetAction", ^{
         id target = [NSObject new];
 
         [textView addTarget:target action:@selector(verySpecialAction:) forControlEvents:UIControlEventEditingChanged];
+        [[textView.allTargets should] contain:target];
         NSArray *actions = [textView actionsForTarget:target forControlEvent:UIControlEventEditingChanged];
         [[actions should] haveCountOf:1];
 
         [textView removeTarget:target action:@selector(verySpecialAction:) forControlEvents:UIControlEventEditingChanged];
+        [[textView.allTargets shouldNot] contain:target];
         actions = [textView actionsForTarget:target forControlEvent:UIControlEventEditingChanged];
         [[actions should] beEmpty];
     });

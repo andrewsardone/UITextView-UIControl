@@ -29,7 +29,10 @@ static void *APSUIControlTargetActionEventsTargetActionsMapKey = &APSUIControlTa
             break;
         }
     }
-    if (targetAction) [targetActions removeObject:targetAction];
+    if (targetAction) {
+        [targetActions removeObject:targetAction];
+        [self.aps_mutableAllTargets removeObject:targetAction[@"target"]];
+    }
 }
 
 - (NSSet *)allTargets
