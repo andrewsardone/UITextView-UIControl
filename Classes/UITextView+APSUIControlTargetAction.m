@@ -93,28 +93,25 @@ static void *APSUIControlTargetActionEventsTargetActionsMapKey = &APSUIControlTa
 
 - (void)aps_textViewDidBeginEditing:(NSNotification *)notification
 {
-    NSMutableSet *targetActions = self.aps_eventsTargetActionsMap[@(UIControlEventEditingDidBegin)];
-    for (NSDictionary *ta in targetActions) {
-        [ta[@"target"] performSelector:NSSelectorFromString(ta[@"action"])
-                            withObject:notification.object];
-    }
+    [self aps_forwardControlEvent:UIControlEventEditingDidBegin fromSender:notification.object];
 }
 
 - (void)aps_textViewChanged:(NSNotification *)notification
 {
-    NSMutableSet *targetActions = self.aps_eventsTargetActionsMap[@(UIControlEventEditingChanged)];
-    for (NSDictionary *ta in targetActions) {
-        [ta[@"target"] performSelector:NSSelectorFromString(ta[@"action"])
-                            withObject:notification.object];
-    }
+    [self aps_forwardControlEvent:UIControlEventEditingChanged fromSender:notification.object];
 }
 
 - (void)aps_textViewDidEndEditing:(NSNotification *)notification
 {
-    NSMutableSet *targetActions = self.aps_eventsTargetActionsMap[@(UIControlEventEditingDidEnd)];
+    [self aps_forwardControlEvent:UIControlEventEditingDidEnd fromSender:notification.object];
+}
+
+- (void)aps_forwardControlEvent:(UIControlEvents)controlEvent fromSender:(id)sender
+{
+    NSMutableSet *targetActions = self.aps_eventsTargetActionsMap[@(controlEvent)];
     for (NSDictionary *ta in targetActions) {
         [ta[@"target"] performSelector:NSSelectorFromString(ta[@"action"])
-                            withObject:notification.object];
+                            withObject:sender];
     }
 }
 
