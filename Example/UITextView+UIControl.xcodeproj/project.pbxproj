@@ -23,6 +23,7 @@
 		49000DA8172C32EA002EDA7D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 49000DA6172C32EA002EDA7D /* InfoPlist.strings */; };
 		49000DBA172C37FC002EDA7D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49000D83172C32EA002EDA7D /* CoreGraphics.framework */; };
 		493F63EC177F39BC00E66FA6 /* UITextViewTargetActionSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 493F63EB177F39BC00E66FA6 /* UITextViewTargetActionSpec.m */; };
+		495DAF9B17809389009B3E12 /* ExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 495DAF9A17809389009B3E12 /* ExampleViewController.m */; };
 		8EACC80CEDE84DE1909950AF /* libPods-UITextView+UIControlTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E314E5C8051483793D175E5 /* libPods-UITextView+UIControlTests.a */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,8 @@
 		49000DA5172C32EA002EDA7D /* UITextView+UIControlTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UITextView+UIControlTests-Info.plist"; sourceTree = "<group>"; };
 		49000DA7172C32EA002EDA7D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		493F63EB177F39BC00E66FA6 /* UITextViewTargetActionSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITextViewTargetActionSpec.m; sourceTree = "<group>"; };
+		495DAF9917809389009B3E12 /* ExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleViewController.h; sourceTree = "<group>"; };
+		495DAF9A17809389009B3E12 /* ExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleViewController.m; sourceTree = "<group>"; };
 		55551EA30B01445FBEA31984 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E314E5C8051483793D175E5 /* libPods-UITextView+UIControlTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UITextView+UIControlTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93654E8EC40A4634AA66DC18 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -127,6 +130,8 @@
 			children = (
 				49000D8E172C32EA002EDA7D /* APSAppDelegate.h */,
 				49000D8F172C32EA002EDA7D /* APSAppDelegate.m */,
+				495DAF9917809389009B3E12 /* ExampleViewController.h */,
+				495DAF9A17809389009B3E12 /* ExampleViewController.m */,
 				49000D86172C32EA002EDA7D /* Supporting Files */,
 			);
 			path = "UITextView+UIControl";
@@ -336,6 +341,7 @@
 			files = (
 				49000D8C172C32EA002EDA7D /* main.m in Sources */,
 				49000D90172C32EA002EDA7D /* APSAppDelegate.m in Sources */,
+				495DAF9B17809389009B3E12 /* ExampleViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
