@@ -73,7 +73,7 @@ describe(@"UITextView+APSUIControlTargetAction", ^{
         [[actions should] beEmpty];
     });
 
-    it(@"it does not prematurely remove a target with multiple actions", ^{
+    it(@"does not prematurely remove a target with multiple actions", ^{
         id target = [NSObject new];
 
         [textView addTarget:target action:@selector(someAction:) forControlEvents:UIControlEventEditingChanged];
