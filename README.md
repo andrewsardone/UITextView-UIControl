@@ -1,29 +1,50 @@
 # UITextView+UIControl
 
-An add on to `UITextView` that adds a `UIControl`-like API.
+A `UIControl`-like API addition to `UITextView`.
 
 ## Target-Action
 
-`UITextField` is a `UIControl`, and it exposes a target-action interface for the
-following control events:
+`UITextField` is a `UIControl`, so it exposes a target-action interface for various events. `UITextView+APSUIControlTargetAction.h` adds the same interface, allowing arbitrary target-actions to subscribe to the following events:
+
+- `UIControlEventEditingDidBegin`
+- `UIControlEventEditingChanged`
+- `UIControlEventEditingDidEnd`
+
+For example:
 
 ```objc
-// UIControl.h
-typedef NS_OPTIONS(NSUInteger, UIControlEvents) {
-    // …
-    UIControlEventEditingDidBegin     = 1 << 16,     // UITextField
-    UIControlEventEditingChanged      = 1 << 17,
-    UIControlEventEditingDidEnd       = 1 << 18,
-    UIControlEventEditingDidEndOnExit = 1 << 19,     // 'return key' ending editing
-    // …
-};
+#import "ExampleViewController.h"
+#import <UITextView+UIControl/UITextView+APSUIControlTargetAction.h>
+
+@interface ExampleViewController ()
+
+@property (nonatomic, strong) UITextView *textView;
+
+@end
+
+@implementation ExampleViewController
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+    [self.textView addTarget:self action:@selector(textViewDidChange:) forControlEvents:UIControlEventEditingChanged];
+}
+
+- (void)textViewDidChange:(UITextView *)sender
+{
+    NSLog(@"%s, text view text: %@", __PRETTY_FUNCTION__, sender.text);
+}
+
+@end
 ```
 
-Would'nt it be nice to have the same target-action API for the same set (or
-subset) of control events on `UITextView`?
+<img src="https://s3.amazonaws.com/f.cl.ly/items/2n383X1y1l3S0v1l1J3J/uitextview%2Btarget-action@2x.gif" alt="UITextView target-action screencast" width="618" height="434" />
 
 ## TODO
 
-Lots. Mostly forwarding NSNotifications events to the stored target-actions. I'll get to that once my MacBook finishes charging and I'm back to where I can code.
-
 Once this hits a version 0.1, I'll submit it as a CocoaPod.
+
+## Attribution
+
+A big chunk of the work was done during the [*Back on the Map' Objective-c Hackathon](https://objectivechackathon.appspot.com/).
