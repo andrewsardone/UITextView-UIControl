@@ -1,16 +1,12 @@
 #import "UITextView+APSUIControlTargetAction.h"
 #import <objc/runtime.h>
 
-static void *APSUIControlTargetActionTargetsKey = &APSUIControlTargetActionTargetsKey;
-
 static void *APSUIControlTargetActionEventsTargetActionsMapKey = &APSUIControlTargetActionEventsTargetActionsMapKey;
 
 @implementation UITextView (APSUIControlTargetAction)
 
 - (void)addTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents
 {
-    [self.aps_mutableAllTargets addObject:target];
-
     NSMutableSet *targetActions = self.aps_eventsTargetActionsMap[@(controlEvents)];
     if (targetActions == nil) {
         targetActions = [NSMutableSet set];
@@ -31,13 +27,16 @@ static void *APSUIControlTargetActionEventsTargetActionsMapKey = &APSUIControlTa
     }
     if (targetAction) {
         [targetActions removeObject:targetAction];
-        [self.aps_mutableAllTargets removeObject:targetAction[@"target"]];
     }
 }
 
 - (NSSet *)allTargets
 {
-    return self.aps_mutableAllTargets;
+    NSMutableSet *targets = [NSMutableSet set];
+    [self.aps_eventsTargetActionsMap enumerateKeysAndObjectsUsingBlock:^(id key, NSSet *targetActions, BOOL *stop) {
+        for (NSDictionary *ta in targetActions) { [targets addObject:ta[@"target"]]; }
+    }];
+    return targets;
 }
 
 - (UIControlEvents)allControlEvents
@@ -92,16 +91,6 @@ static void *APSUIControlTargetActionEventsTargetActionsMapKey = &APSUIControlTa
         );
     }
     return eventsTargetActionsMap;
-}
-
-- (NSMutableSet *)aps_mutableAllTargets
-{
-    NSMutableSet *mutableAllTargets = objc_getAssociatedObject(self, APSUIControlTargetActionTargetsKey);
-    if (mutableAllTargets == nil) {
-        mutableAllTargets = [NSMutableSet set];
-        objc_setAssociatedObject(self, APSUIControlTargetActionTargetsKey, mutableAllTargets, OBJC_ASSOCIATION_RETAIN);
-    }
-    return mutableAllTargets;
 }
 
 @end

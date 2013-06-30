@@ -66,6 +66,19 @@ describe(@"UITextView+APSUIControlTargetAction", ^{
         [[actions should] beEmpty];
     });
 
+    it(@"it does not prematurely remove a target with multiple actions", ^{
+        id target = [NSObject new];
+
+        [textView addTarget:target action:@selector(someAction:) forControlEvents:UIControlEventEditingChanged];
+        [textView addTarget:target action:@selector(someOtherAction:) forControlEvents:UIControlEventEditingDidBegin];
+
+        [[textView.allTargets should] haveCountOf:1];
+
+        [textView removeTarget:target action:@selector(someAction:) forControlEvents:UIControlEventEditingChanged];
+
+        [[textView.allTargets should] haveCountOf:1];
+    });
+
 });
 
 SPEC_END
