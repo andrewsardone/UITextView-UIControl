@@ -1,6 +1,13 @@
 #import <Kiwi/Kiwi.h>
 #import <UITextView+UIControl/UITextView+APSUIControlTargetAction.h>
 
+@interface TestTarget : NSObject
+- (void)testAction:(id)sender;
+@end
+@implementation TestTarget
+- (void)testAction:(id)sender { /* noop */ }
+@end
+
 SPEC_BEGIN(UITextViewTargetActionSpec)
 
 describe(@"UITextView+APSUIControlTargetAction", ^{
@@ -77,6 +84,25 @@ describe(@"UITextView+APSUIControlTargetAction", ^{
         [textView removeTarget:target action:@selector(someAction:) forControlEvents:UIControlEventEditingChanged];
 
         [[textView.allTargets should] haveCountOf:1];
+    });
+
+    context(@"bridging NSNotifications to target-actions", ^{
+
+        __block NSNotificationCenter *notificationCenter;
+
+        beforeEach(^{
+            notificationCenter = [NSNotificationCenter new];
+            [textView stub:@selector(aps_notificationCenter) andReturn:notificationCenter];
+        });
+
+        it(@"UITextViewTextDidBeginEditingNotification -> UIControlEventEditingDidBegin", ^{
+            id target = [TestTarget new];
+            [[[target should] receive] testAction:textView];
+
+            [textView addTarget:target action:@selector(testAction:) forControlEvents:UIControlEventEditingDidBegin];
+            [notificationCenter postNotificationName:UITextViewTextDidBeginEditingNotification object:textView];
+        });
+
     });
 
 });

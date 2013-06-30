@@ -13,6 +13,11 @@ static void *APSUIControlTargetActionEventsTargetActionsMapKey = &APSUIControlTa
         self.aps_eventsTargetActionsMap[@(controlEvents)] = targetActions;
     }
     [targetActions addObject:@{ @"target": target, @"action": NSStringFromSelector(action) }];
+
+    [self.aps_notificationCenter addObserver:self
+                                    selector:@selector(aps_textViewDidBeginEditing:)
+                                        name:UITextViewTextDidBeginEditingNotification
+                                      object:self];
 }
 
 - (void)removeTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents
@@ -76,6 +81,17 @@ static void *APSUIControlTargetActionEventsTargetActionsMapKey = &APSUIControlTa
 #warning TODO: Implement me
 }
 
+#pragma mark Notifications
+
+- (void)aps_textViewDidBeginEditing:(NSNotification *)notification
+{
+    NSMutableSet *targetActions = self.aps_eventsTargetActionsMap[@(UIControlEventEditingDidBegin)];
+    for (NSDictionary *ta in targetActions) {
+        [ta[@"target"] performSelector:NSSelectorFromString(ta[@"action"])
+                            withObject:notification.object];
+    }
+}
+
 #pragma mark Private
 
 - (NSMutableDictionary *)aps_eventsTargetActionsMap
@@ -91,6 +107,11 @@ static void *APSUIControlTargetActionEventsTargetActionsMapKey = &APSUIControlTa
         );
     }
     return eventsTargetActionsMap;
+}
+
+- (NSNotificationCenter *)aps_notificationCenter
+{
+    return [NSNotificationCenter defaultCenter];
 }
 
 @end
