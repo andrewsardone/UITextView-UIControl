@@ -111,6 +111,14 @@ describe(@"UITextView+APSUIControlTargetAction", ^{
             [notificationCenter postNotificationName:UITextViewTextDidChangeNotification object:textView];
         });
 
+        it(@"UITextViewTextDidEndEditingNotification -> UIControlEventEditingDidEnd", ^{
+            id target = [TestTarget new];
+            [[[target should] receive] testAction:textView];
+
+            [textView addTarget:target action:@selector(testAction:) forControlEvents:UIControlEventEditingDidEnd];
+            [notificationCenter postNotificationName:UITextViewTextDidEndEditingNotification object:textView];
+        });
+
     });
 
 });
