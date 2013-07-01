@@ -47,4 +47,4 @@ Once this hits a version 0.1, I'll submit it as a CocoaPod.
 
 ## Attribution
 
-A big chunk of the work was done during the [*Back on the Map' Objective-c Hackathon](https://objectivechackathon.appspot.com/).
+A big chunk of the work was done during the [*Back on the Map* Objective-c Hackathon](https://objectivechackathon.appspot.com/).
