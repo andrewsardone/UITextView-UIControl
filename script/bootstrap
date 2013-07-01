@@ -1,0 +1,15 @@
+#!/bin/sh
+# Usage: script/bootstrap
+# Initializes your environment for development'
+
+SCRIPT_DIR=$(dirname "$0")
+cd "$SCRIPT_DIR/.."
+
+# git submodules
+git submodule sync --quiet || exit $?
+git submodule update --init || exit $?
+git submodule foreach --recursive --quiet "git submodule sync --quiet && git submodule update --init" || exit $?
+
+# Bundler setup
+bundle install --path vendor/bundle
+cd Example && bundle exec pod install
