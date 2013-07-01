@@ -39,7 +39,7 @@ For example:
 @end
 ```
 
-<img src="https://s3.amazonaws.com/f.cl.ly/items/2n383X1y1l3S0v1l1J3J/uitextview%2Btarget-action@2x.gif" alt="UITextView target-action screencast" width="618" height="434" />
+<img src="http://f.cl.ly/items/391J1k333z403b3S1U2g/uitextview%2Btarget-action@2x.gif" alt="UITextView target-action screencast"/>
 
 ## TODO
 
