@@ -2,6 +2,8 @@
 
 A `UIControl`-like API addition to `UITextView`.
 
+[![Build Status](https://travis-ci.org/andrewsardone/UITextView-UIControl.png?branch=ci)](https://travis-ci.org/andrewsardone/UITextView-UIControl)
+
 ## Target-Action
 
 `UITextField` is a `UIControl`, so it exposes a target-action interface for various events. `UITextView+APSUIControlTargetAction.h` adds the same interface, allowing arbitrary target-actions to subscribe to the following events:
