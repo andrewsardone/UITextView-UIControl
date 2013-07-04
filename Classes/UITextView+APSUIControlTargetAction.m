@@ -81,12 +81,17 @@ static void *APSUIControlTargetActionEventsTargetActionsMapKey = &APSUIControlTa
 
 - (void)sendAction:(SEL)action to:(id)target forEvent:(UIEvent *)event
 {
-#warning TODO: Implement me
+    [self.aps_application sendAction:action to:target from:self forEvent:event];
 }
 
 - (void)sendActionsForControlEvents:(UIControlEvents)controlEvents
 {
-#warning TODO: Implement me
+    for (id target in self.allTargets.allObjects) {
+        NSArray *actions = [self actionsForTarget:target forControlEvent:controlEvents];
+        for (NSString *action in actions) {
+            [self sendAction:NSSelectorFromString(action) to:target forEvent:nil];
+        }
+    }
 }
 
 #pragma mark Notifications
@@ -141,5 +146,7 @@ static void *APSUIControlTargetActionEventsTargetActionsMapKey = &APSUIControlTa
 {
     return [NSNotificationCenter defaultCenter];
 }
+
+- (UIApplication *)aps_application { return UIApplication.sharedApplication; }
 
 @end

@@ -3,9 +3,11 @@
 
 @interface TestTarget : NSObject
 - (void)testAction:(id)sender;
+- (void)otherTestAction:(id)sender;
 @end
 @implementation TestTarget
 - (void)testAction:(id)sender { /* noop */ }
+- (void)otherTestAction:(id)sender { /* noop */ }
 @end
 
 SPEC_BEGIN(UITextViewTargetActionSpec)
@@ -128,6 +130,55 @@ describe(@"UITextView+APSUIControlTargetAction", ^{
                forControlEvents:UIControlEventEditingDidBegin|UIControlEventEditingChanged];
 
             [notificationCenter postNotificationName:UITextViewTextDidBeginEditingNotification object:textView];
+        });
+
+    });
+
+    context(@"sending target-actions", ^{
+
+        __block UIApplication *application;
+
+        beforeEach(^{
+            application = UIApplication.sharedApplication;
+            [textView stub:@selector(aps_application) andReturn:application];
+        });
+
+        it(@"forwards to UIApplication singleton for specific target-action event", ^{
+            // setup
+            id target = [TestTarget new];
+            UIEvent *fakeEvent = [UIEvent new];
+            [textView addTarget:target action:@selector(testAction:) forControlEvents:UIControlEventEditingChanged];
+
+            // expectation
+            [[[application should] receive] sendAction:@selector(testAction:)
+                                                    to:target
+                                                  from:textView
+                                              forEvent:fakeEvent];
+
+            // execute
+            [textView sendAction:@selector(testAction:) to:target forEvent:fakeEvent];
+        });
+
+        it(@"fowards all send actions for events to UIApplication singleton", ^{
+            // setup
+            id target = [TestTarget new];
+            [textView addTarget:target action:@selector(testAction:) forControlEvents:UIControlEventEditingDidBegin];
+
+            id otherTarget = [TestTarget new];
+            [textView addTarget:otherTarget action:@selector(otherTestAction:) forControlEvents:UIControlEventEditingDidBegin];
+
+            // expectations
+            [[[application should] receive] sendAction:@selector(testAction:)
+                                                    to:target
+                                                  from:textView
+                                              forEvent:any()];
+            [[[application should] receive] sendAction:@selector(otherTestAction:)
+                                                    to:otherTarget
+                                                  from:textView
+                                              forEvent:any()];
+
+            // execute
+            [textView sendActionsForControlEvents:UIControlEventEditingDidBegin];
         });
 
     });
