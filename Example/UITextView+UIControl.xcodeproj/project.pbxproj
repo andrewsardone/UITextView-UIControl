@@ -22,6 +22,7 @@
 		49000DA0172C32EA002EDA7D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49000D81172C32EA002EDA7D /* Foundation.framework */; };
 		49000DA8172C32EA002EDA7D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 49000DA6172C32EA002EDA7D /* InfoPlist.strings */; };
 		49000DBA172C37FC002EDA7D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49000D83172C32EA002EDA7D /* CoreGraphics.framework */; };
+		4915237417886B970034E795 /* UITextViewStatesSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 4915237317886B970034E795 /* UITextViewStatesSpec.m */; };
 		493F63EC177F39BC00E66FA6 /* UITextViewTargetActionSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 493F63EB177F39BC00E66FA6 /* UITextViewTargetActionSpec.m */; };
 		495DAF9B17809389009B3E12 /* ExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 495DAF9A17809389009B3E12 /* ExampleViewController.m */; };
 		8EACC80CEDE84DE1909950AF /* libPods-UITextView+UIControlTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E314E5C8051483793D175E5 /* libPods-UITextView+UIControlTests.a */; };
@@ -56,6 +57,7 @@
 		49000D9D172C32EA002EDA7D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		49000DA5172C32EA002EDA7D /* UITextView+UIControlTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UITextView+UIControlTests-Info.plist"; sourceTree = "<group>"; };
 		49000DA7172C32EA002EDA7D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4915237317886B970034E795 /* UITextViewStatesSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITextViewStatesSpec.m; sourceTree = "<group>"; };
 		493F63EB177F39BC00E66FA6 /* UITextViewTargetActionSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITextViewTargetActionSpec.m; sourceTree = "<group>"; };
 		495DAF9917809389009B3E12 /* ExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleViewController.h; sourceTree = "<group>"; };
 		495DAF9A17809389009B3E12 /* ExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleViewController.m; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				49000DA4172C32EA002EDA7D /* Supporting Files */,
+				4915237317886B970034E795 /* UITextViewStatesSpec.m */,
 				493F63EB177F39BC00E66FA6 /* UITextViewTargetActionSpec.m */,
 			);
 			path = "UITextView+UIControlTests";
@@ -350,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				493F63EC177F39BC00E66FA6 /* UITextViewTargetActionSpec.m in Sources */,
+				4915237417886B970034E795 /* UITextViewStatesSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
