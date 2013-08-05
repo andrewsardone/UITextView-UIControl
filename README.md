@@ -43,9 +43,14 @@ For example:
 
 <img src="http://f.cl.ly/items/391J1k333z403b3S1U2g/uitextview%2Btarget-action@2x.gif" alt="UITextView target-action screencast"/>
 
-## TODO
+## Installation
 
-Once this hits a version 0.1, I'll submit it as a CocoaPod.
+Use [CocoaPds](http://cocoapods.org/) and add `UITextView+UIControl` to your `Podfile`:
+
+```ruby
+pod 'UITextView+UIControl', '~> 0.1.0'
+```
+Or install manually by copying everying from `Classes/` into your Xcode project.
 
 ## Attribution
 
