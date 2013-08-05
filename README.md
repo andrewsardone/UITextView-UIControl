@@ -45,7 +45,7 @@ For example:
 
 ## Installation
 
-Use [CocoaPds](http://cocoapods.org/) and add `UITextView+UIControl` to your `Podfile`:
+Use [CocoaPods](http://cocoapods.org/) and add `UITextView+UIControl` to your `Podfile`:
 
 ```ruby
 pod 'UITextView+UIControl', '~> 0.1.0'
