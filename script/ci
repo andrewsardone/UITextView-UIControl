@@ -7,4 +7,8 @@ cd "$SCRIPT_DIR/.."
 
 script/bootstrap
 
-vendor/xctool/xctool.sh -workspace Example/UITextView+UIControl.xcworkspace -scheme UITextView+UIControl ONLY_ACTIVE_ARCH=NO -sdk iphonesimulator clean test
+xcodebuild \
+  -workspace Example/UITextView+UIControl.xcworkspace \
+  -scheme UITextView+UIControl \
+  -sdk iphonesimulator clean test \
+  | bundle exec xcpretty --color
