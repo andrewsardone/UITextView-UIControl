@@ -1,4 +1,3 @@
 ---
 language: objective-c
-before_script: script/ci_before_script
 script: script/ci
