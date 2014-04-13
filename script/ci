@@ -11,4 +11,4 @@ xcodebuild \
   -workspace Example/UITextView+UIControl.xcworkspace \
   -scheme UITextView+UIControl \
   -sdk iphonesimulator clean test \
-  | bundle exec xcpretty --color
+  | bundle exec xcpretty --color && exit ${PIPESTATUS[0]}
